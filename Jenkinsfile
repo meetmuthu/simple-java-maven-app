@@ -22,6 +22,13 @@ pipeline {
                 }
             }
         }
+
+        stage('Reporting') {
+            steps {
+                sh 'mvn site'
+            }
+         }
+
         stage('Deliver') { 
             steps {
                 sh './jenkins/scripts/deliver.sh' 
